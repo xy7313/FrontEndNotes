@@ -74,7 +74,9 @@
 
 13. Using component as directive
 
-    ![tu]()
+    ![as directive](./images/asdirective.png)
+    ![container](./images/container.png)
+    ![3 steps](./images/3steps.png)
 
    
 #### TypeScript
