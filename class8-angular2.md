@@ -74,11 +74,61 @@
 
 13. Using component as directive
 
-    ![as directive](./images/asdirective.png)
-    ![container](./images/container.png)
-    ![3 steps](./images/3steps.png)
+    ![using component as directive implemented by defining in main.ts](./images/asdirective.png)
+    ![container and directive](./images/container.png)
+    ![3 steps to use directive component as directive. Directive prop: classname in component. (We may have other choices later.)](./images/3steps.png)
 
-   
+14. Data Binding with Interpolation
+
+![ The double curly braces part is called Template Expression, angular using interpolation to pass data. It's a one way binding from the class prop to a template](interpolation.png)
+
+25. Directives:
+
+    - Custom Directives
+
+    - Angular Built-in Directives
+
+        - Structural directives: modify the structure or layout of a view by manipulating element in their children. `*` marks the directives as structural directives
+
+        - `<table class='table' *ngIf='products && products.length'> ` if the right side evaluates to a false value , remove this element and its children from DOM. If products exists and length!=0, show the table 
+
+        - ` <tr *ngFor='let product of filteredProducts'>` ` '#product of products'` the #(hash symbol) means it is a local variable uses only in this template 
+
+        - 
+
+26. any[] is the data type used when we aren't sure about the datatype in typescript. 
+
+27. Property binding ( [] ): set property of an element to value of a template expression
+
+    - Binding source are always enclosed in quotes 
+    
+    - Binding targets as always enclosed in square brackets []
+
+    - `[binding target] = ‘binding source’;`, eg `<img [src]='product.imageUrl' [title]='product.productName' [style.width.px] = 'imageWidth' />`
+
+28. Event binding ( () ): bind an event to an element
+
+    - Target event is always enclosed in parentheses
+
+    - Component class method will always be enclosed in quotes
+
+    - `(target event) = ‘method()’;` eg: `<button (click)='toggleImage()' class="btn btn-primary">Show image</button>`
+    - 
+
+29. Two way binding
+
+    - Syntax [(ngModel)] = ‘property name’; []+(),prop binding + event binding
+
+    -  filter input element: `<input type="text" [(ngModel)] = 'listFilter' /> <h3>Filtered by : {{listFilter}}</h3> `
+
+30. Pipes: transform data. `<td>{{product.price | currency: 'USD' : true}}</td>`, `{{product.productName | uppercase}}`, ` <tr *ngFor = "let product of products | productFilter : filterList">`
+
+31. Interface:
+
+    - create interfaces to strongly type a property
+
+    - 
+
 #### TypeScript
 
 1. Open source language
@@ -159,11 +209,6 @@
 
     - Setup routing to navigate between user views
 
-3. Using component as directive
-    ![as directive](/images/asdirective.png)
-    ![container component and directive component ](/images/container.png)
-    ![3 steps](/images/3steps.png)
-    
 
 
 

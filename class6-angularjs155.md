@@ -54,6 +54,7 @@ app.controller('mycntrl',function($scope,$http){
 
 4. digest cycle ??
 angular listen to all changes in the page, and update. if part of view changed, a digest cycle triggered. we can fire a digest cycle in a htmlElement.onclick function. 
+
 ```
 var app = angular.module('myapp',[]);
 app.controller('mycntrl',function($scope,$http){
