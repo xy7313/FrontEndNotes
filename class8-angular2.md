@@ -78,25 +78,23 @@
     ![container and directive](./images/container.png)
     ![3 steps to use directive component as directive. Directive prop: classname in component. (We may have other choices later.)](./images/3steps.png)
 
-14. Data Binding with Interpolation
-
-![ The double curly braces part is called Template Expression, angular using interpolation to pass data. It's a one way binding from the class prop to a template](interpolation.png)
-
 25. Directives:
 
     - Custom Directives
 
     - Angular Built-in Directives
 
-        - Structural directives: modify the structure or layout of a view by manipulating element in their children. `*` marks the directives as structural directives
+        - Structural directives: modify the structure or layout of a view by manipulating element in their children. `*` marks(asterisk) the directives as structural directives
 
         - `<table class='table' *ngIf='products && products.length'> ` if the right side evaluates to a false value , remove this element and its children from DOM. If products exists and length!=0, show the table 
 
-        - ` <tr *ngFor='let product of filteredProducts'>` ` '#product of products'` the #(hash symbol) means it is a local variable uses only in this template 
-
-        - 
+        - ` <tr *ngFor='let product of filteredProducts'>` ` '#product of products'` the #(hash symbol) means it is a local variable uses only in this template. Assign to a quoted string expression 
 
 26. any[] is the data type used when we aren't sure about the datatype in typescript. 
+
+14. Data Binding with Interpolation
+
+![ The double curly braces part is called Template Expression, angular using interpolation to pass data. It's a one way binding from the class prop to a template](interpolation.png)
 
 27. Property binding ( [] ): set property of an element to value of a template expression
 
@@ -104,7 +102,7 @@
     
     - Binding targets as always enclosed in square brackets []
 
-    - `[binding target] = ‘binding source’;`, eg `<img [src]='product.imageUrl' [title]='product.productName' [style.width.px] = 'imageWidth' />`
+    - `[binding target] = ‘binding source’;`, eg `<img [src]='product.imageUrl' [title]='product.productName' [style.width.px] = 'imageWidth' />`; `<img src = 'http://somewebsite/{{product.imageUrl}}'>` (binding using interpolation)
 
 28. Event binding ( () ): bind an event to an element
 
@@ -112,22 +110,108 @@
 
     - Component class method will always be enclosed in quotes
 
-    - `(target event) = ‘method()’;` eg: `<button (click)='toggleImage()' class="btn btn-primary">Show image</button>`
-    - 
+    - `(target event) = ‘method()’;` eg: `<button (click)='toggleImage()' class="btn btn-primary">Show image</button>`    
 
-29. Two way binding
+29. Two way binding: component--prop-->dom, dom--events-->component.
 
-    - Syntax [(ngModel)] = ‘property name’; []+(),prop binding + event binding
+    - Syntax [(ngModel)] = ‘property name’; []+(),prop binding + event binding, [()]-banana in the box 
 
     -  filter input element: `<input type="text" [(ngModel)] = 'listFilter' /> <h3>Filtered by : {{listFilter}}</h3> `
 
-30. Pipes: transform data. `<td>{{product.price | currency: 'USD' : true}}</td>`, `{{product.productName | uppercase}}`, ` <tr *ngFor = "let product of products | productFilter : filterList">`
+30. Pipes: transform data, separated with colons `<td>{{product.price | currency: 'USD' : true}}</td>`, `{{product.productName | uppercase}}`, ` <tr *ngFor = "let product of products | productFilter : filterList">`
 
-31. Interface:
+31. Improving components
 
-    - create interfaces to strongly type a property
+    1. Strong typing & Interface:
 
-    - 
+        - Create interfaces to strongly type a property, use interface as a data type.
+
+        - Interface is a specification identifying a related set of properties and methods, a class commits to supporting the specification by implementing the interface
+
+        - Development time only.
+
+        - (properly cycle event, transform data to user friendly values as needed)
+
+    2. Encapsulating styles:  ensure styles do not leak out to any other components. Add `    styleUrls: ['./product-list.component.css']` in decorator
+
+    3. Lifecycle hooks: 
+
+        - Component have a life cycle:  Create --> Render --> Create and render children --> process changes --> destroy
+
+        - Most commonly use: 
+
+            - OnInit:  initialization, retrieve data 
+
+            - OnChange: Perform actions after angular sets data binding input props
+
+            - OnDestroy: cleanup
+
+    4. Custom pipes: `transform(value: Iproduct[], args?: string)` question mark marks the parameter as optional.
+
+    5. Nested component
+
+32. For of Vs. For in
+
+![for of vs. for in ](./images/forloop.png)
+
+
+33. Nested Component
+
+    - `@Input() variablename: variabletype;`, so the parent component can using this prop by prop binding
+
+    - `@Output()`must be an event. eg: ` @Output() ratingClicked : EventEmitter<string> = new EventEmitter();`.
+
+    - Generics: allow us to identify a specific type that the object instance will work with
+
+    - **Use Event binding to respond to events from the nested component: use $event to access the event in nested component**
+
+34. Service
+
+    - Register services with angular injector, which maintains a container of active services instances. Injector create and manage single class or singleton as required.
+
+        - Register a provider: create ro return a server or the service class itself.
+
+        - Define as part of metadata
+
+        - Inject to component and its children
+
+    - Angular create single class of this service, called singleton, and holds onto it.
+
+    - Component needs service: class define the service as dependency, injector provides and injects into constructor. `constructor(private http:Http) { }`(public, protect)
+
+    - Dependency Injection: a coding pattern in which a class receive the instances of objects it needs(called dependencies) from an external source rather than creating them itself
+
+    - Steps: the same as we define component and custom pipt
+
+        - Create the service class
+
+        - Define the metadata with a decorator
+
+        - import what we need
+
+35. Service Checklist:
+
+    1. Include the angular2 http script
+
+    2. Register http_providers in appropriate location in the component hierarchy
+
+    3. Import RXjs to load all responsive extension feature, such as : map, operator
+
+    4. Define a dependency for http client service using a constructor parameter
+
+    5. Create a method for each http request
+
+    6. Call desired http method, pass in the url
+
+    7. Map http response to a json file
+
+    8. err handling
+
+    9. In class that need service: call subscribe method to subscribe the observable; provide a function to handle an emitted item; provide an error function
+
+    ![Promise Vs Observable](./images/obsVsPro.png)
+    ![Service Checklist](./images/ServiceChecklist.png)
+
 
 #### TypeScript
 
