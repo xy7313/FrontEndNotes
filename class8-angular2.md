@@ -1,3 +1,85 @@
+
+#### TypeScript
+
+1. Open source language
+
+2. Strongly type
+
+    - TypeScript type definition files (libraryname.d.tx)
+
+3. Transpiles to plain javascript
+
+4. Class-based, Object-oriented
+
+
+#### npm
+
+1. Node Package Manager for JavaScript
+
+2. is a command line utility that interacts with repositories of open source projects
+
+
+#### Manually setup Angular2 application
+
+1. Create an application folder
+
+2. tsconfig.json
+
+3. package.json
+
+4. typings.json
+
+5. Install libraries and typings
+
+6. index.html  (entrypoint of application)
+
+7. main.tx(bootstrapper) file to bootstrap the angular application with the root component
+
+
+#### Using Angular tool cli to setup Angular2 application(Prefer)
+
+0. Make sure you have installed node.js
+
+1. install cli following this instruction https://github.com/angular/angular-cli
+
+2. Navigate to http://localhost:4200/
+
+3. angular-cli.json all configuration --> index.html, main.ts, app.module.ts, app.component.ts, (import) 
+
+
+#### Products Example
+
+1. Architecture: index.html is comprised of 
+
+    - App components:  
+
+        - welcome component,
+
+        - product component
+
+            - star component
+
+        - product detail component
+
+    - Product data service
+
+2. Outline:
+    
+    - Components, life cycle
+
+    - Template, Interpolation, Directives for user interface
+
+    - data binding, pipes
+
+    - nested components and communication between container and nested component 
+
+    - service and dependency injection(inject services into component)
+
+    - Retrieving data using http, communicate with back-end server
+
+    - Setup routing to navigate between user views
+
+
 #### Angular Basic
 
 1. Components make applications, component = template+class(including props, methods)+metadata
@@ -211,89 +293,6 @@
 
     ![Promise Vs Observable](./images/obsVsPro.png)
     ![Service Checklist](./images/ServiceChecklist.png)
-
-
-#### TypeScript
-
-1. Open source language
-
-2. Strongly type
-
-    - TypeScript type definition files (libraryname.d.tx)
-
-3. Transpiles to plain javascript
-
-4. Class-based, Object-oriented
-
-
-#### npm
-
-1. Node Package Manager for JavaScript
-
-2. is a command line utility that interacts with repositories of open source projects
-
-
-#### Manually setup Angular2 application
-
-1. Create an application folder
-
-2. tsconfig.json
-
-3. package.json
-
-4. typings.json
-
-5. Install libraries and typings
-
-6. index.html  (entrypoint of application)
-
-7. main.tx(bootstrapper) file to bootstrap the angular application with the root component
-
-
-#### Using Angular tool cli to setup Angular2 application(Prefer)
-
-0. Make sure you have installed node.js
-
-1. install cli following this instruction https://github.com/angular/angular-cli
-
-2. Navigate to http://localhost:4200/
-
-3. angular-cli.json all configuration --> index.html, main.ts, app.module.ts, app.component.ts, (import) 
-
-
-#### Products Example
-
-1. Architecture: index.html is comprised of 
-
-    - App components:  
-
-        - welcome component,
-
-        - product component
-
-            - star component
-
-        - product detail component
-
-    - Product data service
-
-2. Outline:
-    
-    - Components, life cycle
-
-    - Template, Interpolation, Directives for user interface
-
-    - data binding, pipes
-
-    - nested components and communication between container and nested component 
-
-    - service and dependency injection(inject services into component)
-
-    - Retrieving data using http, communicate with back-end server
-
-    - Setup routing to navigate between user views
-
-
 
 
 #### Angular session notes
