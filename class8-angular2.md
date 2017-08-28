@@ -294,6 +294,41 @@
     ![Promise Vs Observable](./images/obsVsPro.png)
     ![Service Checklist](./images/ServiceChecklist.png)
 
+36. Routing
+
+    1. Configure router for component
+
+        1. Add router script
+            
+            1. path: url path segment for route
+
+            2. name: route name, PascalCase
+
+            3. Component: reference to the component itself, not in `""`, must be inported
+
+            4. Set useAsDefault to true to use the default route
+
+        2. Register routing providers:
+
+            1. specify in directives array in component.ts
+
+            2. add RouterLink directive as an attribute( on clickable element, enclosed in square brackets)
+
+            3. RouteOutlet
+
+            4. Passing params: `{ path: "products/:id/:productName", component: ProductDetailComponent },//app.module.ts`; `<a [routerLink] = "['/products', product.productCode, product.productName]">{{product.productName}}</a>//product-list.component.html`; `const id = this.activatedRoute.snapshot.params["id"];////product-detail.component.html`, remmber to import
+
+
+    2. Define options/actions
+
+    3. Tie router to 
+
+    4. Active router based on user action, sometimes passing parameters
+
+    5. Activating router display a view
+
+
+
 
 #### Angular session notes
 

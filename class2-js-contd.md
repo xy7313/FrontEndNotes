@@ -1,5 +1,3 @@
-#### Qs
-1. promise 
 
 #### notes
 18. 
